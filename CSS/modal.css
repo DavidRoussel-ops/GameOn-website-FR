@@ -401,7 +401,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  max-height: 650px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -558,7 +558,7 @@ footer {
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
-    padding: 5px 5px;
+    padding: 5px 30px;
   }
   .copyrights {
     padding-top: 20%;
