@@ -28,6 +28,11 @@ img {
   padding-right: 1rem;
 }
 
+#errorMessage {
+  font-size: 15px;
+  color: red;
+}
+
 @media screen and (min-width: 801px) {
 
 }
@@ -456,6 +461,15 @@ input[data-error]::after {
 }
 @media screen and (max-width: 800px) {
 
+  main {
+    font-size: 130%;
+    font-weight: bolder;
+    color: black;
+    margin: 1px 20px 15px;
+    text-align: justify;
+    position: relative;
+  }
+
   .topnav {
     overflow: hidden;
     margin: 0;
@@ -473,10 +487,12 @@ input[data-error]::after {
     right: 15px;
     top: 27px;
     color: white;
+    font-size: 20px;
   }
 
   .topnav a {
     display: none;
+    font-size: 12px;
   }
 
   .topnav a:hover .fa-bars{
@@ -512,7 +528,7 @@ input[data-error]::after {
   }
 
   .img-logo {
-    width: 50%;
+    width: 70%;
   }
 
   .hero-img img {
@@ -532,6 +548,7 @@ input[data-error]::after {
     color: #000;
     padding: 0;
     margin-top: 20px;
+    min-width: 250px;
   }
   .hero-content::after {
     content: unset;
@@ -540,14 +557,14 @@ input[data-error]::after {
     display: none;
   }
   .hero-headline {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     white-space: normal;
   }
   .hero-text {
     font-size: 15px;
-    width: 80%;
-    margin-top: 20px;
+    width: 90%;
+    margin: 20px 0 20px 0;
   }
   .hero-img img {
     border-radius: 10px;
@@ -571,12 +588,26 @@ input[data-error]::after {
   }
 
   .modal-body {
-    padding: 0 8% 100%;
+    position: relative;
     margin: 20px auto;
+    bottom: 0;
+  }
+
+  input {
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  .text-control {
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    height: auto;
+    font-size: 10px;
   }
 
   label {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .text-label {
