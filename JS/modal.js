@@ -65,14 +65,23 @@ function validerEmail(champ) {
   }
 }
 
+//Fonction valider l'anniverssaire
+function validerAnniversaire(champ) {
+  let annivRegExp = new RegExp("[1-9]+-[1-9]+-[1-9]+");
+  if (!annivRegExp.test(champ)) {
+    console.log(inputAnniversaire.value);
+    throw new Error("Veuillez renseigner une date valide");
+  }
+}
+
 //Fonction pour afficher les erreurs formulaire
 function afficherMessageErreur(message) {
   let spanError = document.getElementById("errorMessage");
   if (!spanError) {
-    let modalBody = document.querySelector(".modal-body");
+    let errorPopup = document.querySelector(".errorPopup");
     spanError = document.createElement("span");
     spanError.id = "errorMessage";
-    modalBody.appendChild(spanError);
+    errorPopup.appendChild(spanError);
   }
   spanError.innerText = message;
 }
@@ -84,7 +93,7 @@ function gererFormulaire() {
       validerCaractere(inputPrenom.value);
       validerCaractere(inputNom.value);
       validerEmail(inputEmail.value);
-      verifierChamp(inputAnniversaire.value);
+      validerAnniversaire(inputAnniversaire.value);
       console.log(inputAnniversaire.value);
       afficherMessageErreur("");
     } catch (error) {
