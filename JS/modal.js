@@ -16,7 +16,8 @@ let inputPrenom = document.getElementById("first");
 let inputEmail = document.getElementById("email");
 let inputAnniversaire = document.getElementById("birthdate");
 let buttonSubmit = document.getElementById("submitButton");
-console.log(inputAnniversaire.value);
+let inputCheckbox = document.getElementsByClassName("checkbox-input");
+let textControl = document.getElementsByClassName("text-control");
 
 function consoleLog (value) {
   console.log(value);
@@ -41,10 +42,18 @@ function closeForm() {
 
 //Fonction pour vérifié si un champ est vide
 function verifierChamp(champ) {
-  if (champ.value === "") {
+  if (champ === "") {
     throw new Error("Veuillez renseigner ce champ")
   } else {
     console.log("Ce champ est rempli")
+  }
+}
+
+//Fonction pour valider les checkbox
+function validerCheckbox(input) {
+  if (input === false) {
+    console.log(input);
+    throw new Error("Il faut selectionner au moins un checkbox");
   }
 }
 
@@ -86,20 +95,19 @@ function afficherMessageErreur(message) {
   spanError.innerText = message;
 }
 
-let spanConfirm = document.getElementsByClassName("confirmForm");
-let messageConfirm = prompt("Merci ! Votre réservation a été reçue.");
-
 //Fonction de gestion du formulaire
 function gererFormulaire() {
   buttonSubmit.addEventListener("click", function () {
     try {
-      validerCaractere(inputPrenom.value);
-      validerCaractere(inputNom.value);
-      validerEmail(inputEmail.value);
-      validerAnniversaire(inputAnniversaire.value);
-      console.log(inputAnniversaire.value);
+      validerCaractere(inputPrenom.value)
+      validerCaractere(inputNom.value)
+      validerEmail(inputEmail.value)
+      validerAnniversaire(inputAnniversaire.value)
+      verifierChamp(textControl.value);
+      validerCheckbox(inputCheckbox);
+      console.log("Ok")
       afficherMessageErreur("");
-      spanConfirm = messageConfirm;
+      validate();
     } catch (error) {
       afficherMessageErreur(error.message);
     }
@@ -107,14 +115,7 @@ function gererFormulaire() {
 }
 
 function validate() {
-  //Récupération du formulaire
-  let formulaire = document.querySelector("form");
-  consoleLog(formulaire);
-
-  formulaire.addEventListener("submit", (e) => {
-    e.preventDefault();
-    gererFormulaire();
-  });
+  window.location.href = "http://localhost:63342/GameOn-website-FR/HTML/index.html?_ijt=a6l3thnr8i4p9pqp0jmjubqh3r";
 }
 
 
