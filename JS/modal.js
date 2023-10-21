@@ -86,6 +86,9 @@ function afficherMessageErreur(message) {
   spanError.innerText = message;
 }
 
+let spanConfirm = document.getElementsByClassName("confirmForm");
+let messageConfirm = prompt("Merci ! Votre réservation a été reçue.");
+
 //Fonction de gestion du formulaire
 function gererFormulaire() {
   buttonSubmit.addEventListener("click", function () {
@@ -96,6 +99,7 @@ function gererFormulaire() {
       validerAnniversaire(inputAnniversaire.value);
       console.log(inputAnniversaire.value);
       afficherMessageErreur("");
+      spanConfirm = messageConfirm;
     } catch (error) {
       afficherMessageErreur(error.message);
     }
