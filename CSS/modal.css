@@ -608,10 +608,13 @@ input[data-error]::after {
 
   label {
     font-size: 10px;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 0;
   }
 
   .text-label {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .bground {
@@ -623,6 +626,49 @@ input[data-error]::after {
     padding-left: 2px;
     padding-right: 2px;
     margin: 0 20px;
+  }
+
+  .checkbox-label, .checkbox2-label {
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-size: 10px;
+  }
+
+  .checkbox-input {
+    margin-left: 5px;
+    margin-bottom: 5px;
+  }
+
+  .checkbox2-label .checkbox-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-indent: 29px;
+    white-space: nowrap;
+    position: absolute;
+    left: -30px;
+    top: -1px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+  }
+
+  #errorMessage {
+    font-size: 10px;
+    color: red;
+  }
+
+  #submitButton {
+    background: #fe142f;
+    display: block;
+    border-radius: 7px;
+    font-size: 1rem;
+    padding: 12px 82px;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    margin: 10px auto 900px;
   }
 }
 
