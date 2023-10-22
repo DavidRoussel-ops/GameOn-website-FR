@@ -128,6 +128,18 @@ main {
 
 /* Modal form */
 
+.finish {
+  display: none;
+}
+
+#closeButton {
+  display: none;
+}
+
+.none {
+  display: none;
+}
+
 .button {
   background: #fe142f;
   margin-top: 0.5em;
