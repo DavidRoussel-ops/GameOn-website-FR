@@ -16,13 +16,18 @@ let inputPrenom = document.getElementById("first");
 let inputEmail = document.getElementById("email");
 let inputAnniversaire = document.getElementById("birthdate");
 let buttonSubmit = document.getElementById("submitButton");
-let inputCheckbox = document.getElementsByClassName("checkbox-input");
-let textControl = document.getElementsByClassName("text-control");
+let inputCheckbox1 = document.getElementById("checkbox1");
+let quantity = document.getElementById("quantity");
 
-function consoleLog (value) {
-  console.log(value);
-}
-
+inputCheckbox1.addEventListener("change", function () {
+  if (inputCheckbox1.value === "non") {
+    inputCheckbox1.value = "oui";
+    console.log(inputCheckbox1.value);
+  } else {
+    inputCheckbox1.value = "non";
+    console.log(inputCheckbox1.value);
+  }
+});
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -50,11 +55,10 @@ function verifierChamp(champ) {
 }
 
 //Fonction pour valider les checkbox
-function validerCheckbox(input) {
-  if (input === false) {
-    console.log(input);
-    throw new Error("Il faut selectionner au moins un checkbox");
-  }
+function validerCheckbox() {
+    if (inputCheckbox1.value === "non") {
+      throw new Error("Vous devez accepter les conditions de participation");
+    }
 }
 
 //Fonction permettant de valider les deux caractères
@@ -97,17 +101,22 @@ function afficherMessageErreur(message) {
 
 //Fonction de gestion du formulaire
 function gererFormulaire() {
+  let finishWord = document.getElementsByClassName(".finish");
+  let finishButton = document.getElementById("closeButton");
+  let modalBody = document.getElementsByClassName("modal-body");
   buttonSubmit.addEventListener("click", function () {
     try {
       validerCaractere(inputPrenom.value)
       validerCaractere(inputNom.value)
       validerEmail(inputEmail.value)
       validerAnniversaire(inputAnniversaire.value)
-      verifierChamp(textControl.value);
-      validerCheckbox(inputCheckbox);
+      verifierChamp(quantity.value);
+      validerCheckbox();
       console.log("Ok")
       afficherMessageErreur("");
-      validate();
+      finishWord.classList.remove("none");
+      finishButton.classList.remove("none");
+      modalBody.classList.add("none");
     } catch (error) {
       afficherMessageErreur(error.message);
     }
@@ -115,6 +124,15 @@ function gererFormulaire() {
 }
 
 function validate() {
+  let finishWord = document.getElementsByClassName(".finish");
+  let finishButton = document.getElementById("closeButton");
+  let form = document.querySelector("form");
+  finishWord.style.display = "block";
+  finishButton.style.display = "block";
+  form.classList.add("none");
+}
+
+function close() {
   window.location.href = "http://localhost:63342/GameOn-website-FR/HTML/index.html?_ijt=a6l3thnr8i4p9pqp0jmjubqh3r";
 }
 
