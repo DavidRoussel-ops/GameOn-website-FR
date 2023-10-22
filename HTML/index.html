@@ -43,8 +43,10 @@
         <div class="content">
             <span class="confirmForm"></span>
             <span class="close"></span>
+            <p class="none">Merci pour votre inscription</p>
+            <input class="none button" id="closeButton" type="button" value="Fermer" onclick="close()"/>
             <div class="modal-body">
-                <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+                <form name="reserve" method="get" onsubmit="validate()">
                     <div class="errorPopup">
                         <label for="first">Prénom</label><br>
                         <input class="text-control" id="first" name="first" type="text"/><br>
@@ -61,8 +63,10 @@
                         <label for="birthdate">Date de naissance</label><br>
                         <input class="text-control" id="birthdate" name="birthdate" type="date"/><br>
                     </div>
+                    <div class="errorPopup">
                         <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                         <input class="text-control" id="quantity" max="99" min="0" name="quantity" type="number"/>
+                    </div>
                     <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                         <input class="checkbox-input" id="location1" name="location" type="radio" value="New York"/>
                         <label class="checkbox-label" for="location1"><span class="checkbox-icon"></span>New York</label>
@@ -76,9 +80,11 @@
                         <label class="checkbox-label" for="location5"><span class="checkbox-icon"></span>Boston</label>
                         <input class="checkbox-input" id="location6" name="location" type="radio" value="Portland"/>
                         <label class="checkbox-label" for="location6"><span class="checkbox-icon"></span>Portland</label>
-                        <input checked class="checkbox-input" id="checkbox1" type="checkbox"/>
-                        <label class="checkbox2-label" for="checkbox1" required><span class="checkbox-icon"></span>J'ai lu et accepté les conditions d'utilisation.</label>
+                    <div class="errorPopup">
+                        <input class="checkbox-input" id="checkbox1" type="checkbox" value="non"/>
+                        <label class="checkbox2-label" for="checkbox1"><span class="checkbox-icon"></span>J'ai lu et accepté les conditions d'utilisation.</label>
                         <br>
+                    </div>
                         <input class="checkbox-input" id="checkbox2" type="checkbox"/>
                         <label class="checkbox2-label" for="checkbox2"><span class="checkbox-icon"></span>Je souhaite être prévenu des prochains évènements.</label>
                         <br>
