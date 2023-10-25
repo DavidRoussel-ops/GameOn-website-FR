@@ -132,8 +132,8 @@ main {
   display: none;
 }
 
-#closeButton {
-  display: none;
+.block {
+  display: block;
 }
 
 .none {
@@ -160,7 +160,7 @@ main {
 
 .bground {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   left: 0;
   top: 0;
@@ -473,6 +473,17 @@ input[data-error]::after {
 }
 @media screen and (max-width: 800px) {
 
+  .bground {
+    display: none;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
+  }
+
   main {
     font-size: 130%;
     font-weight: bolder;
@@ -600,7 +611,7 @@ input[data-error]::after {
   }
 
   .modal-body {
-    position: relative;
+    position: absolute;
     margin: 20px auto;
     bottom: 0;
   }
@@ -680,7 +691,7 @@ input[data-error]::after {
     color: #fff;
     cursor: pointer;
     border: 0;
-    margin: 10px auto 900px;
+    margin: 10px auto;
   }
 }
 
