@@ -29,6 +29,15 @@ inputCheckbox1.addEventListener("change", function () {
   }
 });
 
+function changePage() {
+  let p = document.getElementById("pId");
+  let input = document.getElementById("closeButton")
+  let form = document.getElementById("formId");
+  p.classList.remove("none");
+  input.classList.remove("none");
+  form.classList.add("none");
+}
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -101,9 +110,6 @@ function afficherMessageErreur(message) {
 
 //Fonction de gestion du formulaire
 function gererFormulaire() {
-  let finishWord = document.getElementsByClassName(".finish");
-  let finishButton = document.getElementById("closeButton");
-  let modalBody = document.getElementsByClassName("modal-body");
   buttonSubmit.addEventListener("click", function () {
     try {
       validerCaractere(inputPrenom.value)
@@ -114,9 +120,7 @@ function gererFormulaire() {
       validerCheckbox();
       console.log("Ok")
       afficherMessageErreur("");
-      finishWord.classList.remove("none");
-      finishButton.classList.remove("none");
-      modalBody.classList.add("none");
+      changePage();
     } catch (error) {
       afficherMessageErreur(error.message);
     }
@@ -124,12 +128,7 @@ function gererFormulaire() {
 }
 
 function validate() {
-  let finishWord = document.getElementsByClassName(".finish");
-  let finishButton = document.getElementById("closeButton");
-  let form = document.querySelector("form");
-  finishWord.style.display = "block";
-  finishButton.style.display = "block";
-  form.classList.add("none");
+  gererFormulaire();
 }
 
 function close() {
