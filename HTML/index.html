@@ -43,10 +43,10 @@
         <div class="content">
             <span class="confirmForm"></span>
             <span class="close"></span>
-            <p class="none">Merci pour votre inscription</p>
+            <p class="none" id="pId">Merci pour votre inscription</p>
             <input class="none button" id="closeButton" type="button" value="Fermer" onclick="close()"/>
             <div class="modal-body">
-                <form name="reserve" method="get" onsubmit="validate()">
+                <form id="formId" class="" name="reserve" method="get" onsubmit="validate()">
                     <div class="errorPopup">
                         <label for="first">Prénom</label><br>
                         <input class="text-control" id="first" name="first" type="text"/><br>
@@ -88,7 +88,7 @@
                         <input class="checkbox-input" id="checkbox2" type="checkbox"/>
                         <label class="checkbox2-label" for="checkbox2"><span class="checkbox-icon"></span>Je souhaite être prévenu des prochains évènements.</label>
                         <br>
-                    <input class="btn-submit button" id="submitButton" type="button" value="C'est parti" onclick="gererFormulaire()"/>
+                    <input class="btn-submit button" id="submitButton" type="button" value="C'est parti" onclick="validate()"/>
                 </form>
             </div>
         </div>
