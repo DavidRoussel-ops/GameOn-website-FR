@@ -610,7 +610,7 @@ input[data-error]::after {
     padding-top: 0;
     bottom: 0;
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
     animation-name: modalopen;
     animation-duration: var(--modal-duration);
     background: #232323;
@@ -618,11 +618,10 @@ input[data-error]::after {
     overflow: hidden;
     position: absolute;
     color: #fff;
-    min-height: 600px;
+    min-height: 90%;
   }
 
   .modal-body {
-    position: relative;
     margin: 20px auto 0;
     bottom: 0;
   }
@@ -702,8 +701,25 @@ input[data-error]::after {
     margin: 10px auto;
   }
 
+  #msgEnd {
+    width: 75%;
+    margin: 20px auto 0;
+  }
+
   #pId {
-    padding : 250px 0 250px 0;
+    text-align: center;
+    margin: 100% auto 0;
+  }
+
+  .button {
+    width: 30%;
+    margin: 80% 35% 0;
+    background: #fe142f;
+    padding: 10px;
+    color: #fff;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
   }
 }
 
