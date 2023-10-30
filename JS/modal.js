@@ -131,8 +131,11 @@ function validate() {
   gererFormulaire();
 }
 
-function close() {
-  window.location.href = "http://localhost:63342/GameOn-website-FR/HTML/index.html?_ijt=a6l3thnr8i4p9pqp0jmjubqh3r";
+function closeFinish() {
+  let btnClose = document.getElementById("closeButton");
+  btnClose.addEventListener("click", function () {
+    window.location.href = "http://localhost:63342/GameOn-website-FR/HTML/index.html?_ijt=a6l3thnr8i4p9pqp0jmjubqh3r";
+  })
 }
 
 
