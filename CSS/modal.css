@@ -637,6 +637,7 @@ input[data-error]::after {
 
   .modal-body {
     margin: 20px auto 0;
+    padding: 15px 20px;
     bottom: 0;
   }
 
@@ -670,11 +671,6 @@ input[data-error]::after {
     margin: 0 20px;
   }
 
-  .miniPlace {
-    display: flex;
-    justify-content: space-between;
-  }
-
   .checkbox-label .checkbox-icon {
     display: block;
     width: 15px;
@@ -706,12 +702,12 @@ input[data-error]::after {
   .checkbox2-label {
     position: relative;
     margin-left: 0;
+    margin-right: 20px;
     font-size: 10px;
     font-weight: normal;
   }
 
-  .checkbox-label .checkbox-icon::after,
-  .checkbox2-label .checkbox-icon::after {
+  .checkbox-label .checkbox-icon::after {
     content: "";
     width: 13px;
     height: 13px;
@@ -720,6 +716,23 @@ input[data-error]::after {
     text-indent: 29px;
     white-space: nowrap;
     position: absolute;
+    left: 11%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+    opacity: 0;
+  }
+
+  .checkbox2-label .checkbox-icon::after {
+    content: "";
+    width: 13px;
+    height: 13px;
+    background-color: #279e7a;
+    border: 0 solid transparent;
+    border-radius: 4px;
+    text-indent: 29px;
+    white-space: nowrap;
+    position: relative;
     left: 11%;
     top: 50%;
     transform: translate(-50%, -50%);
