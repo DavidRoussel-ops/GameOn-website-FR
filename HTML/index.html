@@ -51,23 +51,23 @@
                 <form id="formId" class="" name="reserve" method="get" onsubmit="validate()">
                     <div class="errorPopup">
                         <label for="first">Prénom</label><br>
-                        <input class="text-control" id="first" name="first" type="text"/><br>
+                        <input class="text-control" id="first" name="first" type="text" required/><br>
                     </div>
                     <div class="errorPopup">
                         <label for="last">Nom</label><br>
-                        <input class="text-control" id="last" name="last" type="text"/><br>
+                        <input class="text-control" id="last" name="last" type="text" required/><br>
                     </div>
                     <div class="errorPopup">
                         <label for="email">E-mail</label><br>
-                        <input class="text-control" id="email" name="email" type="email"/><br>
+                        <input class="text-control" id="email" name="email" type="email" required/><br>
                     </div>
                     <div class="errorPopup">
                         <label for="birthdate">Date de naissance</label><br>
-                        <input class="text-control" id="birthdate" name="birthdate" type="date"/><br>
+                        <input class="text-control" id="birthdate" name="birthdate" type="date" required/><br>
                     </div>
                     <div class="errorPopup">
                         <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                        <input class="text-control" id="quantity" max="99" min="0" name="quantity" type="number"/>
+                        <input class="text-control" id="quantity" max="99" min="0" name="quantity" type="number" required/>
                     </div>
                     <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                         <input class="checkbox-input" id="location1" name="location" type="radio" value="New York"/>
@@ -83,13 +83,13 @@
                         <input class="checkbox-input" id="location6" name="location" type="radio" value="Portland"/>
                         <label class="checkbox-label" for="location6"><span class="checkbox-icon">Portland</span></label>
                     <div class="errorPopup">
-                        <input class="checkbox-input" id="checkbox1" type="checkbox" value="non"/>
+                        <input class="checkbox-input" id="checkbox1" type="checkbox" value="non" required/>
                         <label class="checkbox2-label" for="checkbox1"><span class="checkbox-icon">J'ai lu et accepté les conditions d'utilisation.</span></label>
                         <br>
-                    </div>
                         <input class="checkbox-input" id="checkbox2" type="checkbox"/>
                         <label class="checkbox2-label" for="checkbox2"><span class="checkbox-icon">Je souhaite être prévenu des prochains évènements.</span></label>
                         <br>
+                    </div>
                     <input class="btn-submit button" id="submitButton" type="button" value="C'est parti" onclick="validate()"/>
                 </form>
             </div>
