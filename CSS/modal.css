@@ -33,6 +33,11 @@ img {
   color: red;
 }
 
+#errorMessageNom {
+  font-size: 15px;
+  color: red;
+}
+
 @media screen and (min-width: 801px) {
 
 }
@@ -209,7 +214,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after {
+.errorPopup[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
   color: #e54858;
@@ -221,10 +226,14 @@ input {
   opacity: 0;
   transition: 0.3s;
 }
-.formData[data-error-visible="true"]::after {
+.errorPopup[data-error-visible="true"]::after {
   opacity: 1;
 }
-.formData[data-error-visible="true"] .text-control {
+.errorPopup[data-error-visible="true"] .text-control {
+  border: 2px solid #e54858;
+}
+
+.errorInput {
   border: 2px solid #e54858;
 }
 /*
@@ -681,6 +690,7 @@ input[data-error]::after {
     top: 95%;
     left: 15%;
     width: 70%;
+    display: block;
   }
 
   .checkbox-label .checkbox-icon {
