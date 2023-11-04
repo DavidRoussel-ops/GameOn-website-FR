@@ -49,23 +49,23 @@
             </div>
             <div class="modal-body">
                 <form id="formId" class="" name="reserve" method="get" onsubmit="validate()">
-                    <div class="errorPopup">
+                    <div id="errorPopupPrenom">
                         <label for="first">Prénom</label><br>
                         <input class="text-control" id="first" name="first" type="text" required/><br>
                     </div>
-                    <div class="errorPopup">
+                    <div id="errorPopupNom">
                         <label for="last">Nom</label><br>
                         <input class="text-control" id="last" name="last" type="text" required/><br>
                     </div>
-                    <div class="errorPopup">
+                    <div id="errorPopupEmail">
                         <label for="email">E-mail</label><br>
                         <input class="text-control" id="email" name="email" type="email" required/><br>
                     </div>
-                    <div class="errorPopup">
+                    <div id="errorPopupAnniv">
                         <label for="birthdate">Date de naissance</label><br>
                         <input class="text-control" id="birthdate" name="birthdate" type="date" required/><br>
                     </div>
-                    <div class="errorPopup">
+                    <div id="errorPopupQuantite">
                         <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                         <input class="text-control" id="quantity" max="99" min="0" name="quantity" type="number" required/>
                     </div>
@@ -82,7 +82,7 @@
                         <label class="checkbox-label" for="location5"><span class="checkbox-icon">Boston</span></label>
                         <input class="checkbox-input" id="location6" name="location" type="radio" value="Portland"/>
                         <label class="checkbox-label" for="location6"><span class="checkbox-icon">Portland</span></label>
-                    <div class="errorPopup">
+                    <div id="errorPopupCheckbox">
                         <input class="checkbox-input" id="checkbox1" type="checkbox" value="non" required/>
                         <label class="checkbox2-label" for="checkbox1"><span class="checkbox-icon">J'ai lu et accepté les conditions d'utilisation.</span></label>
                         <br>
@@ -96,7 +96,7 @@
         </div>
     </div>
 </main>
-<footer>
+<footer id="footer">
     <p class="copyrights">
         Copyright 2014 - 2022, GameOn Inc.
     </p>
