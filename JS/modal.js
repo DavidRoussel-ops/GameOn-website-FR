@@ -18,6 +18,7 @@ let inputAnniversaire = document.getElementById("birthdate");
 let buttonSubmit = document.getElementById("submitButton");
 let inputCheckbox1 = document.getElementById("checkbox1");
 let quantity = document.getElementById("quantity");
+let footer = document.getElementById("footer");
 
 inputCheckbox1.addEventListener("change", function () {
   if (inputCheckbox1.value === "non") {
@@ -47,34 +48,88 @@ closeSpan.addEventListener("click", closeForm);
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  footer.classList.add("none");
 }
 
 //Fonction pour fermer le formulaire
 function closeForm() {
   modalbg.style.display = "none";
+  window.location.href = "http://localhost:63342/GameOn-website-FR/HTML/index.html?_ijt=a6l3thnr8i4p9pqp0jmjubqh3r";
 }
 
 //Fonction pour vérifié si un champ est vide
 function verifierChamp(champ) {
   if (champ === "") {
-    throw new Error("Veuillez renseigner ce champ")
+    quantity.classList.add("errorInput");
+    let spanErrorQuantite = document.getElementById("errorMessageQuantite");
+    if (!spanErrorQuantite) {
+      let errorPopupQuantite = document.getElementById("errorPopupQuantite");
+      spanErrorQuantite = document.createElement("span");
+      spanErrorQuantite.id = "errorMessage";
+      errorPopupQuantite.appendChild(spanErrorQuantite);
+    }
+    spanErrorQuantite.innerText = "Veuillez renseigner ce champ";
+    throw new Error("Veuillez renseigner ce champ");
   } else {
-    console.log("Ce champ est rempli")
+    quantity.classList.remove("errorInput");
   }
 }
 
 //Fonction pour valider les checkbox
 function validerCheckbox() {
     if (inputCheckbox1.value === "non") {
+      inputCheckbox1.classList.add("errorInput");
+      let spanErrorCheckbox = document.getElementById("errorMessageCheckbox");
+      if (!spanErrorCheckbox) {
+        let errorPopupCheckbox = document.getElementById("errorPopupCheckbox");
+        spanErrorCheckbox = document.createElement("span");
+        spanErrorCheckbox.id = "errorMessage";
+        errorPopupCheckbox.appendChild(spanErrorCheckbox);
+      }
+      spanErrorCheckbox.innerText = "Vous devez accepter les conditions de participation";
       throw new Error("Vous devez accepter les conditions de participation");
+    } else {
+      inputCheckbox1.classList.remove("errorInput");
     }
 }
 
-//Fonction permettant de valider les deux caractères
-function validerCaractere(champ) {
+//Fonction permettant de valider les deux caractères au prénom
+function validerPrenom(champ) {
   if (champ.length < 2) {
-    console.log("2 carctère putain");
+    inputPrenom.classList.add("errorInput");
+    let spanErrorPrenom = document.getElementById("errorMessagePrenom");
+    if (!spanErrorPrenom) {
+      let errorPopupPrenom = document.getElementById("errorPopupPrenom");
+      spanErrorPrenom = document.createElement("span");
+      spanErrorPrenom.id = "errorMessage";
+      errorPopupPrenom.appendChild(spanErrorPrenom);
+    }
+    spanErrorPrenom.innerText = "Le champ doit contenir au moins 2 caractères";
     throw new Error("Le champ doit contenir au moins 2 caractères");
+  } else {
+    let spanErrorPrenom = document.getElementById("errorMessage");
+    inputPrenom.classList.remove("errorInput");
+    spanErrorPrenom.innerText = "";
+  }
+}
+
+//Fonction permettant de valider les deux caractères au nom
+function validerNom(champ) {
+  if (champ.length < 2) {
+    inputNom.classList.add("errorInput");
+    let spanErrorNom = document.getElementById("errorMessageNom");
+    if (!spanErrorNom) {
+      let errorPopupNom = document.getElementById("errorPopupNom");
+      spanErrorNom = document.createElement("span");
+      spanErrorNom.id = "errorMessageNom";
+      errorPopupNom.appendChild(spanErrorNom);
+    }
+    spanErrorNom.innerText = "Le champ doit contenir au moins 2 caractères";
+    throw new Error("Le champ doit contenir au moins 2 caractères");
+  } else {
+    let spanErrorNom = document.getElementById("errorMessageNom");
+    inputNom.classList.remove("errorInput");
+    spanErrorNom.innerText = "";
   }
 }
 
@@ -82,8 +137,18 @@ function validerCaractere(champ) {
 function validerEmail(champ) {
   let emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
   if (!emailRegExp.test(champ)) {
-    console.log("email de merde")
-    throw new Error("l'e-mail n'est pas valide");
+    inputEmail.classList.add("errorInput");
+    let spanErrorEmail = document.getElementById("errorMessageEmail");
+    if (!spanErrorEmail) {
+      let errorPopupEmail = document.getElementById("errorPopupEmail");
+      spanErrorEmail = document.createElement("span");
+      spanErrorEmail.id = "errorMessage";
+      errorPopupEmail.appendChild(spanErrorEmail);
+    }
+    spanErrorEmail.innerText = "L'e-mail n'est pas valide";
+    throw new Error("L'e-mail n'est pas valide");
+  } else {
+    inputNom.classList.remove("errorInput");
   }
 }
 
@@ -91,13 +156,23 @@ function validerEmail(champ) {
 function validerAnniversaire(champ) {
   let annivRegExp = new RegExp("[1-9]+-[1-9]+-[1-9]+");
   if (!annivRegExp.test(champ)) {
-    console.log(inputAnniversaire.value);
+    inputAnniversaire.classList.add("errorInput");
+    let spanErrorAnniv = document.getElementById("errorMessageAnniv");
+    if (!spanErrorAnniv) {
+      let errorPopupAnniv = document.getElementById("errorPopupAnniv");
+      spanErrorAnniv = document.createElement("span");
+      spanErrorAnniv.id = "errorMessage";
+      errorPopupAnniv.appendChild(spanErrorAnniv);
+    }
+    spanErrorAnniv.textContent = "Veuillez renseigner une date valide";
     throw new Error("Veuillez renseigner une date valide");
+  } else {
+    inputNom.classList.remove("errorInput");
   }
 }
 
 //Fonction pour afficher les erreurs formulaire
-function afficherMessageErreur(message) {
+/*function afficherMessageErreur(message) {
   let spanError = document.getElementById("errorMessage");
   if (!spanError) {
     let errorPopup = document.querySelector(".errorPopup");
@@ -106,23 +181,24 @@ function afficherMessageErreur(message) {
     errorPopup.appendChild(spanError);
   }
   spanError.innerText = message;
-}
+}*/
 
 //Fonction de gestion du formulaire
 function gererFormulaire() {
   buttonSubmit.addEventListener("click", function () {
     try {
-      validerCaractere(inputPrenom.value)
-      validerCaractere(inputNom.value)
+      validerPrenom(inputPrenom.value)
+      validerNom(inputNom.value)
       validerEmail(inputEmail.value)
       validerAnniversaire(inputAnniversaire.value)
       verifierChamp(quantity.value);
       validerCheckbox();
       console.log("Ok")
-      afficherMessageErreur("");
+      //afficherMessageErreur("");
       changePage();
     } catch (error) {
-      afficherMessageErreur(error.message);
+      //afficherMessageErreur(error.message);
+      console.log(error);
     }
   })
 }
