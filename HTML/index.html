@@ -43,12 +43,12 @@
         <div class="content">
             <span class="confirmForm"></span>
             <span class="close"></span>
-            <div id="msgEnd">
+            <div id="msgEnd" class="none">
                 <p class="none" id="pId">Merci pour votre inscription</p>
-                <input class="none button" id="closeButton" type="button" value="Fermer" onclick="closeFinish()"/>
+                <input class="none button-submit button" id="closeButton" type="button" value="Fermer" onclick="closeFinish()"/>
             </div>
-            <div class="modal-body">
-                <form id="formId" class="" name="reserve" method="get" onsubmit="validate()">
+            <div id="modalBody" class="modal-body">
+                <form id="formId" class="" name="reserve" method="get">
                     <div id="errorPopupPrenom">
                         <label for="first">Prénom</label><br>
                         <input class="text-control" id="first" name="first" type="text" required/><br>
