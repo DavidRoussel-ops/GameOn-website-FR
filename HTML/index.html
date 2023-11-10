@@ -16,16 +16,15 @@
     <div class="header-logo">
         <img alt="logo" class="img-logo" height="auto" src="../PICTURE/Logo.png" width="auto"/>
     </div>
-    <div class="main-navbar">
-
+    <a class="icon" href="javascript:void(0);" id="btnNav">
+        <i class="fa fa-bars"></i>
+    </a>
+    <div class="main-navbar" id="mainNavBar">
         <a class="active" href="#"><span>Accueil</span></a>
         <a href="#"><span>Détails de l'évènement</span></a>
         <a href="#"><span>À propos</span></a>
         <a href="#"><span>Contact</span></a>
         <a href="#"><span>Évènements passés</span></a>
-        <a class="icon" href="javascript:void(0);" onclick="editNav()">
-            <i class="fa fa-bars"></i>
-        </a>
     </div>
 </div>
 <main>
@@ -45,10 +44,10 @@
             <span class="close"></span>
             <div id="msgEnd" class="none">
                 <p class="none" id="pId">Merci pour votre inscription</p>
-                <input class="none button-submit button" id="closeButton" type="button" value="Fermer" onclick="closeFinish()"/>
+                <input class="none button-submit button" id="closeButton" type="button" value="Fermer"/>
             </div>
             <div id="modalBody" class="modal-body">
-                <form id="formId" class="" name="reserve" method="get">
+                <form id="formId" class="" name="reserve" method="get" onsubmit="return validate()">
                     <div id="errorPopupPrenom">
                         <label for="first">Prénom</label><br>
                         <input class="text-control" id="first" name="first" type="text" required/><br>
