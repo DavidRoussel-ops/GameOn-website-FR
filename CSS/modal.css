@@ -558,6 +558,7 @@ input[data-error]::after {
   }
 
   .main-navbar {
+    top : 10%;
     right: 0;
     z-index: 1;
     overflow: auto;
