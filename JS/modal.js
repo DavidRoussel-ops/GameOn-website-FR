@@ -13,8 +13,10 @@ const footer = document.getElementById("footer");
 const btnNav = document.getElementById("btnNav");
 const myTopNav = document.getElementById("myTopnav");
 
+//Call function
 function launchPage() {
 
+  //Function to close form and refresh
   function closeFinish() {
     let btnClose = document.getElementById("closeButton");
     btnClose.addEventListener("click", function () {
@@ -23,6 +25,7 @@ function launchPage() {
   }
   closeFinish();
 
+  //Function show hide form elements
   function changePage() {
     let msgEnd = document.getElementById("msgEnd");
     let p = document.getElementById("pId");
@@ -41,7 +44,7 @@ function launchPage() {
   }
   validate();
 
-  //Fonction de gestion du formulaire
+  //Function to manage form
   function manageForm() {
     buttonSubmit.addEventListener("click", function () {
       try {
@@ -59,7 +62,7 @@ function launchPage() {
     })
   }
 
-  //Fonction pour valider les checkbox
+  //Function to validate checkbox
   function checkCheckbox() {
     if (inputCheckbox1.value === "non") {
       inputCheckbox1.classList.add("errorInput");
@@ -76,6 +79,7 @@ function launchPage() {
     }
   }
 
+  //Event when the checkbox change value
   inputCheckbox1.addEventListener("change", function () {
     if (inputCheckbox1.value === "non") {
       inputCheckbox1.value = "oui";
@@ -86,7 +90,7 @@ function launchPage() {
     }
   });
 
-  //Fonction pour vérifié si un champ est vide
+  //Function to check if a field is empty
   function checkField(champ) {
     if (champ === "") {
       quantity.classList.add("errorInput");
@@ -103,25 +107,25 @@ function launchPage() {
     }
   }
 
-  //Fonction valider l'anniverssaire
+  //Function to validate birthdate
   function checkBirthdate(champ) {
-    let annivRegExp = new RegExp("[1-9]+-[1-9]+-[1-9]+");
-    if (!annivRegExp.test(champ)) {
+    let birthdateRegExp = new RegExp("[1-9]+-[1-9]+-[1-9]+");
+    if (!birthdateRegExp.test(champ)) {
       inputBirthdate.classList.add("errorInput");
-      let spanErrorAnniv = document.getElementById("errorMessageAnniv");
-      if (!spanErrorAnniv) {
-        let errorPopupAnniv = document.getElementById("errorPopupAnniv");
-        spanErrorAnniv = document.createElement("span");
-        spanErrorAnniv.id = "errorMessageAnniv";
-        spanErrorAnniv.classList.add("errorMessage");
-        errorPopupAnniv.appendChild(spanErrorAnniv);
-        spanErrorAnniv.textContent = "Veuillez renseigner une date valide";
+      let spanErrorBirthdate = document.getElementById("errorMessageAnniv");
+      if (!spanErrorBirthdate) {
+        let errorPopupBirthdate = document.getElementById("errorPopupAnniv");
+        spanErrorBirthdate = document.createElement("span");
+        spanErrorBirthdate.id = "errorMessageAnniv";
+        spanErrorBirthdate.classList.add("errorMessage");
+        errorPopupBirthdate.appendChild(spanErrorBirthdate);
+        spanErrorBirthdate.textContent = "Veuillez renseigner une date valide";
         throw new Error("Veuillez renseigner une date valide");
       }
     }
   }
 
-  //Fonction valider l'email
+  //Function to validate email
   function checkEmail(champ) {
     let emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
     if (!emailRegExp.test(champ)) {
@@ -139,44 +143,44 @@ function launchPage() {
     }
   }
 
-  //Fonction permettant de valider les deux caractères au nom
+  //Function to validate the two characters in the lastname
   function checkLastname(champ) {
     if (champ.length < 2) {
       inputLastname.classList.add("errorInput");
-      let spanErrorNom = document.getElementById("errorMessageNom");
-      if (!spanErrorNom) {
-        let errorPopupNom = document.getElementById("errorPopupNom");
-        spanErrorNom = document.createElement("span");
-        spanErrorNom.id = "errorMessageNom";
-        spanErrorNom.classList.add("errorMessage");
-        errorPopupNom.appendChild(spanErrorNom);
-        spanErrorNom.innerText = "Le champ doit contenir au moins 2 caractères";
+      let spanErrorLastname = document.getElementById("errorMessageNom");
+      if (!spanErrorLastname) {
+        let errorPopupLastname = document.getElementById("errorPopupNom");
+        spanErrorLastname = document.createElement("span");
+        spanErrorLastname.id = "errorMessageNom";
+        spanErrorLastname.classList.add("errorMessage");
+        errorPopupLastname.appendChild(spanErrorLastname);
+        spanErrorLastname.innerText = "Le champ doit contenir au moins 2 caractères";
         throw new Error("Le champ doit contenir au moins 2 caractères");
       }
     }
   }
 
-  //Fonction permettant de valider les deux caractères au prénom
+  //Function allowing you to validate the two characters in the first name
   function checkFirstname(champ) {
     if (champ.length < 2) {
       inputFirstname.classList.add("errorInput");
-      let spanErrorPrenom = document.getElementById("errorMessagePrenom");
-      if (!spanErrorPrenom) {
-        let errorPopupPrenom = document.getElementById("errorPopupPrenom");
-        spanErrorPrenom = document.createElement("span");
-        spanErrorPrenom.id = "errorMessagePrenom";
-        spanErrorPrenom.classList.add("errorMessage");
-        errorPopupPrenom.appendChild(spanErrorPrenom);
-        spanErrorPrenom.innerText = "Le champ doit contenir au moins 2 caractères";
+      let spanErrorFirstname = document.getElementById("errorMessagePrenom");
+      if (!spanErrorFirstname) {
+        let errorPopupFirstname = document.getElementById("errorPopupPrenom");
+        spanErrorFirstname = document.createElement("span");
+        spanErrorFirstname.id = "errorMessagePrenom";
+        spanErrorFirstname.classList.add("errorMessage");
+        errorPopupFirstname.appendChild(spanErrorFirstname);
+        spanErrorFirstname.innerText = "Le champ doit contenir au moins 2 caractères";
         throw new Error("Le champ doit contenir au moins 2 caractères");
       }
     }
   }
 
-  //Fermer le formulaire
+  //Close the form
   closeSpan.addEventListener("click", closeForm);
 
-  //Fonction pour fermer le formulaire
+  //Function close the form and refresh
   function closeForm() {
     modalbg.style.display = "none";
     window.location.href = "http://localhost:63342/GameOn-website-FR/HTML/index.html?_ijt=a6l3thnr8i4p9pqp0jmjubqh3r";
@@ -191,6 +195,7 @@ function launchPage() {
     footer.classList.add("none");
   }
 
+  //function show hide nav
   function showNav() {
     btnNav.addEventListener("click", function () {
       if (myTopNav.className === "topnav") {
