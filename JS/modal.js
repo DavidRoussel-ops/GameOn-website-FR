@@ -38,17 +38,13 @@ function validate() {
   const inputCheckbox1 = document.getElementById("checkbox1");
   const buttonSubmit = document.getElementById("submitButton");
   buttonSubmit.addEventListener("click", function () {
-    try {
-      checkFirstname(inputFirstname.value);
-      checkLastname(inputLastname.value);
-      checkEmail(inputEmail.value);
-      checkBirthdate(inputBirthdate.value);
-      checkField(quantity.value);
-      checkCheckbox(inputCheckbox1.value);
-      console.log("Ok");
+    if (checkFirstname(inputFirstname.value) &&
+    checkLastname(inputLastname.value) &&
+    checkEmail(inputEmail.value) &&
+    checkBirthdate(inputBirthdate.value) &&
+    checkField(quantity.value) &&
+    checkCheckbox(inputCheckbox1.value) === true) {
       changePage();
-    } catch (error) {
-      throw new Error(error.message);
     }
   })
 }
@@ -75,6 +71,7 @@ function checkCheckbox() {
     if (spanErrorCheckbox) {
       errorPopupCheckbox.removeChild(spanErrorCheckbox);
     }
+  return true;
   }
 }
 
@@ -84,10 +81,8 @@ function changeCheckbox() {
   inputCheckbox1.addEventListener("change", function () {
     if (inputCheckbox1.value === "non") {
       inputCheckbox1.value = "oui";
-      console.log(inputCheckbox1.value);
     } else {
       inputCheckbox1.value = "non";
-      console.log(inputCheckbox1.value);
     }
   });
 }
@@ -114,6 +109,7 @@ function checkField(champ) {
     if (spanErrorQuantite) {
       errorPopupQuantite.removeChild(spanErrorQuantite);
     }
+    return true;
   }
 }
 
@@ -140,6 +136,7 @@ function checkBirthdate(champ) {
     if (spanErrorBirthdate) {
       spanPopupBirthdate.removeChild(spanErrorBirthdate);
     }
+    return true;
   }
 }
 
@@ -166,6 +163,7 @@ function checkEmail(champ) {
     if (spanErrorEmail) {
       errorPopupEmail.removeChild(spanErrorEmail);
     }
+    return true;
   }
 }
 
@@ -191,6 +189,7 @@ function checkLastname(champ) {
     if (spanErrorlastname) {
       errorPopuplastname.removeChild(spanErrorlastname);
     }
+    return true;
   }
 }
 
@@ -216,6 +215,7 @@ function checkFirstname(champ) {
     if (spanErrorFirstname) {
       errorPopupFirstname.removeChild(spanErrorFirstname);
     }
+    return true;
   }
 }
 
