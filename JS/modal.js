@@ -29,6 +29,7 @@ function changePage() {
   modalBody.classList.add("none");
 }
 
+//Function to validate form
 function validate() {
   const inputFirstname = document.getElementById("first");
   const inputLastname = document.getElementById("last");
