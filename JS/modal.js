@@ -1,12 +1,3 @@
-//Call function
-function launchPage() {
-  validate();
-  showHideForm();
-  showNav();
-  changeCheckbox();
-  closeFinish();
-}
-
 //Function to close form and refresh
 function closeFinish() {
   let btnClose = document.getElementById("closeButton");
@@ -254,6 +245,15 @@ function showNav() {
       myTopNav.classList.remove("responsive");
     }
   })
+}
+
+//Call function
+function launchPage() {
+  validate();
+  showHideForm();
+  showNav();
+  changeCheckbox();
+  closeFinish();
 }
 
 launchPage();
