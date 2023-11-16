@@ -79,6 +79,7 @@ function changeCheckbox() {
   });
 }
 
+//function to check city
 function checkCity() {
   const radioBtns = document.querySelectorAll("input[name='location']");
     let selectedCity;
@@ -107,71 +108,6 @@ function checkCity() {
       return true;
     }
 }
-
-/*function checkCity() {
-  const radio1 = document.getElementById("location1");
-  const radio2 = document.getElementById("location2");
-  const radio3 = document.getElementById("location3");
-  const radio4 = document.getElementById("location4");
-  const radio5 = document.getElementById("location5");
-  const radio6 = document.getElementById("location6");
-  console.log(radio1.value, radio2.value, radio3.value, radio4.value, radio5.value, radio6.value);
-  if (radio1.value && radio2.value && radio3.value && radio4.value && radio5.value && radio6.value === false) {
-    let spanErrorRadio = document.getElementById("errorMessageRadio");
-    if (!spanErrorRadio) {
-      let errorPopupRadio = document.getElementById("errorPopupRadio");
-      spanErrorRadio = document.createElement("span");
-      spanErrorRadio.id = "errorMessageRadio";
-      spanErrorRadio.classList.add("errorMessage");
-      errorPopupRadio.appendChild(spanErrorRadio);
-      spanErrorRadio.innerText = "Vous devez selectioner une ville";
-    }
-  } else {
-    let spanErrorRadio = document.getElementById("errorMessageRadio");
-    let errorPopupRadio = document.getElementById("errorPopupRadio")
-    if (spanErrorRadio) {
-      errorPopupRadio.removeChild(spanErrorRadio);
-    }
-    return true;
-  }
-}
-
-function changeValueRadio() {
-  const radio1 = document.getElementById("location1");
-  const radio2 = document.getElementById("location2");
-  const radio3 = document.getElementById("location3");
-  const radio4 = document.getElementById("location4");
-  const radio5 = document.getElementById("location5");
-  const radio6 = document.getElementById("location6");
-  radio1.addEventListener("click", function () {
-    radio1.value = "on";
-  });
-  radio2.addEventListener("click", function () {
-    if (radio2.value === false) {
-      radio2.value = true;
-    }
-  });
-  radio3.addEventListener("click", function () {
-    if (radio3.value === false) {
-      radio3.value = true;
-    }
-  });
-  radio4.addEventListener("click", function () {
-    if (radio4.value === false) {
-      radio4.value = true;
-    }
-  });
-  radio5.addEventListener("click", function () {
-    if (radio5.value === false) {
-      radio5.value = true;
-    }
-  });
-  radio6.addEventListener("click", function () {
-    if (radio6.value === false) {
-      radio6.value = true;
-    }
-  });
-}*/
 
 //Function to check if a field is empty
 function checkField(champ) {
