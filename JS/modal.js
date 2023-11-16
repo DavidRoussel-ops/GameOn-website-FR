@@ -2,7 +2,7 @@
 function closeFinish() {
   let btnClose = document.getElementById("closeButton");
   btnClose.addEventListener("click", function () {
-    window.location.href = "http://localhost:63342/GameOn-website-FR/HTML/index.html?_ijt=a6l3thnr8i4p9pqp0jmjubqh3r";
+    window.location.reload();
   });
 }
 
@@ -35,6 +35,7 @@ function validate() {
     checkEmail(inputEmail.value) &&
     checkBirthdate(inputBirthdate.value) &&
     checkField(quantity.value) &&
+        checkCity() &&
     checkCheckbox(inputCheckbox1.value) === true) {
       changePage();
     }
@@ -54,7 +55,6 @@ function checkCheckbox() {
       spanErrorCheckbox.classList.add("errorMessage");
       errorPopupCheckbox.appendChild(spanErrorCheckbox);
       spanErrorCheckbox.innerText = "Vous devez accepter les conditions de participation";
-      throw new Error("Vous devez accepter les conditions de participation");
     }
   } else {
     inputCheckbox1.classList.remove("errorInput");
@@ -79,6 +79,100 @@ function changeCheckbox() {
   });
 }
 
+function checkCity() {
+  const radioBtns = document.querySelectorAll("input[name='location']");
+    let selectedCity;
+    for (const radioBtn of radioBtns) {
+      if (radioBtn.checked) {
+        selectedCity = radioBtn.value;
+        break;
+      }
+    }
+    if (selectedCity === undefined) {
+      let spanErrorRadio = document.getElementById("errorMessageRadio");
+      if (!spanErrorRadio) {
+        let errorPopupRadio = document.getElementById("errorPopupRadio");
+        spanErrorRadio = document.createElement("span");
+        spanErrorRadio.id = "errorMessageRadio";
+        spanErrorRadio.classList.add("errorMessage");
+        errorPopupRadio.appendChild(spanErrorRadio);
+        spanErrorRadio.innerText = "Vous devez selectioner une ville";
+      }
+    } else {
+      let spanErrorRadio = document.getElementById("errorMessageRadio");
+      let errorPopupRadio = document.getElementById("errorPopupRadio")
+      if (spanErrorRadio) {
+        errorPopupRadio.removeChild(spanErrorRadio);
+      }
+      return true;
+    }
+}
+
+/*function checkCity() {
+  const radio1 = document.getElementById("location1");
+  const radio2 = document.getElementById("location2");
+  const radio3 = document.getElementById("location3");
+  const radio4 = document.getElementById("location4");
+  const radio5 = document.getElementById("location5");
+  const radio6 = document.getElementById("location6");
+  console.log(radio1.value, radio2.value, radio3.value, radio4.value, radio5.value, radio6.value);
+  if (radio1.value && radio2.value && radio3.value && radio4.value && radio5.value && radio6.value === false) {
+    let spanErrorRadio = document.getElementById("errorMessageRadio");
+    if (!spanErrorRadio) {
+      let errorPopupRadio = document.getElementById("errorPopupRadio");
+      spanErrorRadio = document.createElement("span");
+      spanErrorRadio.id = "errorMessageRadio";
+      spanErrorRadio.classList.add("errorMessage");
+      errorPopupRadio.appendChild(spanErrorRadio);
+      spanErrorRadio.innerText = "Vous devez selectioner une ville";
+    }
+  } else {
+    let spanErrorRadio = document.getElementById("errorMessageRadio");
+    let errorPopupRadio = document.getElementById("errorPopupRadio")
+    if (spanErrorRadio) {
+      errorPopupRadio.removeChild(spanErrorRadio);
+    }
+    return true;
+  }
+}
+
+function changeValueRadio() {
+  const radio1 = document.getElementById("location1");
+  const radio2 = document.getElementById("location2");
+  const radio3 = document.getElementById("location3");
+  const radio4 = document.getElementById("location4");
+  const radio5 = document.getElementById("location5");
+  const radio6 = document.getElementById("location6");
+  radio1.addEventListener("click", function () {
+    radio1.value = "on";
+  });
+  radio2.addEventListener("click", function () {
+    if (radio2.value === false) {
+      radio2.value = true;
+    }
+  });
+  radio3.addEventListener("click", function () {
+    if (radio3.value === false) {
+      radio3.value = true;
+    }
+  });
+  radio4.addEventListener("click", function () {
+    if (radio4.value === false) {
+      radio4.value = true;
+    }
+  });
+  radio5.addEventListener("click", function () {
+    if (radio5.value === false) {
+      radio5.value = true;
+    }
+  });
+  radio6.addEventListener("click", function () {
+    if (radio6.value === false) {
+      radio6.value = true;
+    }
+  });
+}*/
+
 //Function to check if a field is empty
 function checkField(champ) {
   const quantity = document.getElementById("quantity");
@@ -92,7 +186,6 @@ function checkField(champ) {
       spanErrorQuantite.classList.add("errorMessage");
       errorPopupQuantite.appendChild(spanErrorQuantite);
       spanErrorQuantite.innerText = "Veuillez renseigner ce champ";
-      throw new Error("Veuillez renseigner ce champ");
     }
   } else {
     quantity.classList.remove("errorInput");
@@ -105,11 +198,14 @@ function checkField(champ) {
   }
 }
 
+function isDateValide(date) {
+  return !isNaN(new Date(date));
+}
+
 //Function to validate birthdate
 function checkBirthdate(champ) {
   const inputBirthdate = document.getElementById("birthdate");
-  let birthdateRegExp = new RegExp("[1-9]+-[1-9]+-[1-9]+");
-  if (!birthdateRegExp.test(champ)) {
+  if (isDateValide(champ) === false) {
     inputBirthdate.classList.add("errorInput");
     let spanErrorBirthdate = document.getElementById("errorMessageAnniv");
     if (!spanErrorBirthdate) {
@@ -119,7 +215,6 @@ function checkBirthdate(champ) {
       spanErrorBirthdate.classList.add("errorMessage");
       errorPopupBirthdate.appendChild(spanErrorBirthdate);
       spanErrorBirthdate.textContent = "Veuillez renseigner une date valide";
-      throw new Error("Veuillez renseigner une date valide");
     }
   } else {
     inputBirthdate.classList.remove("errorInput");
@@ -146,7 +241,6 @@ function checkEmail(champ) {
       spanErrorEmail.classList.add("errorMessage");
       errorPopupEmail.appendChild(spanErrorEmail);
       spanErrorEmail.innerText = "L'e-mail n'est pas valide";
-      throw new Error("L'e-mail n'est pas valide");
     }
   } else {
     inputEmail.classList.remove("errorInput");
@@ -172,7 +266,6 @@ function checkLastname(champ) {
       spanErrorLastname.classList.add("errorMessage");
       errorPopupLastname.appendChild(spanErrorLastname);
       spanErrorLastname.innerText = "Le champ doit contenir au moins 2 caractères";
-      throw new Error("Le champ doit contenir au moins 2 caractères");
     }
   } else {
     inputLastname.classList.remove("errorInput");
@@ -198,7 +291,6 @@ function checkFirstname(champ) {
       spanErrorFirstname.classList.add("errorMessage");
       errorPopupFirstname.appendChild(spanErrorFirstname);
       spanErrorFirstname.innerText = "Le champ doit contenir au moins 2 caractères";
-      throw new Error("Le champ doit contenir au moins 2 caractères");
     }
   } else {
     inputFirstname.classList.remove("errorInput");
@@ -215,7 +307,7 @@ function checkFirstname(champ) {
 function closeForm() {
   const modalbg = document.querySelector(".bground");
   modalbg.style.display = "none";
-  window.location.href = "http://localhost:63342/GameOn-website-FR/HTML/index.html?_ijt=a6l3thnr8i4p9pqp0jmjubqh3r";
+  window.location.reload();
 }
 
 //function show hide form
